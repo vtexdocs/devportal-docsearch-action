@@ -1,0 +1,19 @@
+name: 'Algolia Docsearch Scraper'
+description: 'Update the devportal-docs index on Algolia'
+inputs:
+  algolia_application_id:
+    description: 'Algolia docsearch APPLICATION_ID'
+    required: true
+  algolia_api_key:
+    description: 'Algolia docsearch API_KEY'
+    required: true
+  file:
+    description: 'File path to docsearch'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.algolia_application_id }}
+    - ${{ inputs.algolia_api_key }}
+    - ${{ inputs.file }}
