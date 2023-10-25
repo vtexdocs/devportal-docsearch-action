@@ -12,7 +12,6 @@ RUN apt-get update
 RUN apt-get -y install software-properties-common
 
 RUN curl -s 'https://chromedriver.storage.googleapis.com/LATEST_RELEASE' > root/tmp_file
-RUN cat /root/tmp_file
 
 RUN sed -i "/^# deb.*universe/ s/^# //" /etc/apt/sources.list
 
