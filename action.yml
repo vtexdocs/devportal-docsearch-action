@@ -10,6 +10,19 @@ inputs:
   file:
     description: 'File path to docsearch'
     required: true
+  added:
+    description: 'new files to index'
+    required: false
+  removed:
+    description: 'files to remove records'
+    required: false
+  updated:
+    description: 'files to update records'
+    required: false
+outputs:
+  errors:
+    description: >
+      Array of urls with errors
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -17,3 +30,6 @@ runs:
     - ${{ inputs.algolia_application_id }}
     - ${{ inputs.algolia_api_key }}
     - ${{ inputs.file }}
+    - ${{ inputs.added }}
+    - ${{ inputs.removed }}
+    - ${{ inputs.updated }}
