@@ -9,6 +9,7 @@ FILE=$3
 ADDED=$4
 REMOVED=$5
 UPDATED=$6
+RENAMED=$7
 # build from the main source repository
 git clone https://github.com/vtexdocs/docsearch-scraper.git
 
@@ -34,6 +35,7 @@ CHROMEDRIVER_PATH=/github/workspace/docsearch-scraper/chromedriver
 ADDED_FILES=${ADDED}
 REMOVED_FILES=${REMOVED}
 UPDATED_FILES=${UPDATED}
+RENAMED_FILES=${RENAMED}
 " > .env
 
 PIPENV_VENV_IN_PROJECT=true pipenv install

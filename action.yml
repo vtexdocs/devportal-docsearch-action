@@ -19,6 +19,9 @@ inputs:
   updated:
     description: 'files to update records'
     required: false
+  renamed:
+    description: 'files to update records'
+    required: false
 outputs:
   errors:
     description: >
@@ -33,3 +36,4 @@ runs:
     - ${{ inputs.added }}
     - ${{ inputs.removed }}
     - ${{ inputs.updated }}
+    - ${{ inputs.renamed }}
