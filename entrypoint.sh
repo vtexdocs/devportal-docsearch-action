@@ -43,7 +43,7 @@ echo "Update webclient.py"
 cp ./utils/webclient.py ./.venv/lib/python3.6/site-packages/scrapy/core/downloader/
 
 # Loop through each file and run the scraper
-for FILE in $FILES; do
+for FILE in $(eval echo "$FILES"); do
   echo "🔍 Running scraper for $FILE"
   
   # Run the scraper and check if it was successful
@@ -57,4 +57,7 @@ for FILE in $FILES; do
 done
 
 # Capture errors (if any) and append to output
-echo "errors=$(cat ./outputs/errors.txt)" >> "$GITHUB_OUTPUT"
+if [ -f ./outputs/errors.txt ]; then
+  errors=$(cat ./outputs/errors.txt)
+  echo "errors=$errors" >> "$GITHUB_OUTPUT"
+fi
