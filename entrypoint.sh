@@ -19,9 +19,7 @@ cd docsearch-scraper/
 pip3 install pipenv==2018.11.26
 
 # download chromedriver
-
 chromedriverStableVersion=$(curl -s 'https://chromedriver.storage.googleapis.com/LATEST_RELEASE')
-
 wget -q "https://chromedriver.storage.googleapis.com/${chromedriverStableVersion}/chromedriver_linux64.zip"
 
 unzip chromedriver_linux64.zip
@@ -38,7 +36,7 @@ UPDATED_FILES=${UPDATED}
 RENAMED_FILES=${RENAMED}
 " > .env
 
-PIPENV_VENV_IN_PROJECT=true pipenv install
+PIPENV_VENV_IN_PROJECT=true pipenv install --python 3.6
 
 echo "Update webclient.py"
 cp ./utils/webclient.py ./.venv/lib/python3.6/site-packages/scrapy/core/downloader/
