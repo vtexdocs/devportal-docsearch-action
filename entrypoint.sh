@@ -42,6 +42,8 @@ PIPENV_VENV_IN_PROJECT=true pipenv install --python 3.6
 echo "Update webclient.py"
 cp ./utils/webclient.py ./.venv/lib/python3.6/site-packages/scrapy/core/downloader/
 
+echo "🗂️ Files to process: $FILES"
+
 # Loop through each file and run the scraper
 for FILE in $(eval echo "$FILES"); do
   echo "🔍 Running scraper for $FILE"
