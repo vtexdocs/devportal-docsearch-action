@@ -7,8 +7,8 @@ inputs:
   algolia_api_key:
     description: 'Algolia docsearch API_KEY'
     required: true
-  file:
-    description: 'File path to docsearch'
+  files:
+    description: 'File paths to docsearch'
     required: true
   added:
     description: 'new files to index'
