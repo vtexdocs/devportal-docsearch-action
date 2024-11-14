@@ -32,7 +32,7 @@ runs:
   args:
     - ${{ inputs.algolia_application_id }}
     - ${{ inputs.algolia_api_key }}
-    - ${{ inputs.file }}
+    - ${{ inputs.files }}
     - ${{ inputs.added }}
     - ${{ inputs.removed }}
     - ${{ inputs.updated }}
