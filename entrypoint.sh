@@ -14,6 +14,8 @@ RENAMED=$7
 # Build from the main source repository
 git clone https://github.com/vtexdocs/docsearch-scraper.git
 
+git checkout PedroAntunesCosta-spider-1
+
 cd docsearch-scraper/
 
 # Install pipenv
