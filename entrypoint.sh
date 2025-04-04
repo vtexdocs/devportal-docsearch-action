@@ -47,19 +47,33 @@ cp ./utils/webclient.py ./.venv/lib/python3.6/site-packages/scrapy/core/download
 
 echo "🗂️ Files to process: $FILES"
 
+# Initialize counters
+total_files=0
+successful_files=0
+failed_files=0
+
 # Loop through each file and run the scraper
 for FILE in $(eval echo "$FILES"); do
   echo "🔍 Running scraper for $FILE"
+  total_files=$((total_files + 1))
   
   # Run the scraper and check if it was successful
   if yes | pipenv run ./docsearch run $FILE; then
     # Print success message only if the file was processed successfully
     echo "✅ Successfully indexed and uploaded the results for $FILE to Algolia"
+    successful_files=$((successful_files + 1))
   else
     # Print error message if the scraper failed for the file
     echo "❌ Failed to index and upload results for $FILE"
+    failed_files=$((failed_files + 1))
   fi
 done
+
+# Print summary statistics
+echo "\n📊 Processing Summary:"
+echo "Total files processed: $total_files"
+echo "Successfully indexed: $successful_files"
+echo "Failed to index: $failed_files"
 
 # Capture errors (if any) and append to output
 if [ -f ./outputs/errors.txt ]; then
