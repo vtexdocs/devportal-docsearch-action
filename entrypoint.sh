@@ -16,6 +16,9 @@ git clone https://github.com/vtexdocs/docsearch-scraper.git
 
 cd docsearch-scraper/
 
+git fetch
+git checkout broken-page-finder-spider
+
 # Install pipenv
 pip3 install pipenv==2018.11.26
 
