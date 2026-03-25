@@ -12,7 +12,7 @@ UPDATED=$6
 RENAMED=$7
 
 # Build from the main source repository
-git clone https://github.com/vtexdocs/docsearch-scraper.git#fix/algolia-settings-always-apply
+git clone --branch fix/algolia-settings-always-apply https://github.com/vtexdocs/docsearch-scraper.git
 
 cd docsearch-scraper/
 
